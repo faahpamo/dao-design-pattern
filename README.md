@@ -135,7 +135,16 @@ Because we are trying to use two databases - MySQL and Apache Derby, we shall im
 Here's the class diagram for the application that we are developing:
 ![Books database DAO class diagram](https://github.com/faimoh/dao-design-pattern/blob/master/images/UML_Class_Diagram.png)
 
-The UML class diagram is self-explaining. Here's a client program `DAOTest` interacting with the above DAO implementation:
+The UML class diagram is self-explaining. I've designed:
+1. a `DAOFactory` class implementing the abstract factory design pattern
+2. a `BooksDAO` interface for the real DAO object that we've discussed so far. We use this object for our CRUD operations with the underlying database.
+3. a `MysqlDataSourceBooksDAOImpl` class implementing the `BooksDAO` interface using the MySQL DataSource mechanism.
+4. a `DerbyDataSourceBooksDAOImpl` class implementing the `BooksDAO` interface using the Derby DataSource mechanism.
+5. a `Book` class representing the Book entity. The database table `books` represents a collection of such books. So, the `BooksDAO` object uses the `Book` object during the CRUD operations.
+
+Based on the above class diagram, one can easily develop the Java code. However, you can find my code hosted on GitHub.
+
+Here's a client program `DAOTest` interacting with the above DAO implementation:
 ```java
 public class DAOTest {
     public static void main(String[] args) {        
