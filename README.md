@@ -41,12 +41,33 @@ INSERT INTO books(title) VALUES ('Java'), ('The Java Programming Language');
 We represent a `Book` in our Java application as:
 ```java
 public class Book {
-  private int bookID;
-  private String title;
-
-  public Book() {
-
-  }
+    private Integer bookID;
+    private String title;
+    
+    public Book() {
+        
+    }
+    
+    public void setBookID(int id) {
+        this.bookID = id;
+    }
+    
+    public Integer getBookID() {
+        return this.bookID;
+    }
+    
+    public void setTitle(String name) {
+        this.title = name;
+    }
+    
+    public String getTitle() {
+        return this.title;
+    }
+    
+    @Override
+    public String toString() {
+        return this.bookID+", "+this.title;
+    }
 }
 ```
 
