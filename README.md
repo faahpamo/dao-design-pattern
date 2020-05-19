@@ -100,3 +100,10 @@ public class BookDBTest {
 ```
 There's no low level mechanism that we have to care about. It's purely object-oriented. We treat the persistence storage as an object and we interact with the object. We don't even know what the underlying database actually is! DAO has encapsulated the data access mechanisms and also abstracted the way we interact with the database. The client code is clean.
 
+Straight from the Core J2EE design patterns, here's how the DAO design pattern works:
+![Core J2EE DAO design pattern class diagram](http://www.corej2eepatterns.com/images/DAOMainClass.gif)
+
+In our example, Book is the transaction object (TO) and client is the BookDBTest program. The DAO class hides how it interacts with the underlying DataSource and how it builds up the ResultSet. The client code (BookDBTest) cares about result - like objects interacting (message passing) with each other in an object-oriented application.
+
+The sequence diagram from the Core J2EE design patterns further shows what we have discussed so far:
+![Core J2EE DAO design pattern sequence diagram](http://www.corej2eepatterns.com/images/DAOMainSeq.gif)
