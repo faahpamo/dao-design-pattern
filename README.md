@@ -107,3 +107,8 @@ In our example, Book is the transaction object (TO) and client is the BookDBTest
 
 The sequence diagram from the Core J2EE design patterns further shows what we have discussed so far:
 ![Core J2EE DAO design pattern sequence diagram](http://www.corej2eepatterns.com/images/DAOMainSeq.gif)
+
+Because we are trying to use two databases - MySQL and Apache Derby, we shall implement [abstract factory design pattern](https://en.wikipedia.org/wiki/Abstract_factory_pattern). If we are using only one database instead, [factory pattern](https://en.wikipedia.org/wiki/Factory_method_pattern) can replace the abstract factory pattern. Our purpose is to use a factory object to create the required DAO and give it to us. Because we want futher abstraction while creating/obtaining the DAO object.  We don't want to specify the exact class of the DAO object that we want. It could be MySQLDAO or DerbyDAO. We don't want to get into those details. All we care about is the DAO object on which we can call the methods like DAO.getBook(int id) etc.
+
+Here's the class diagram for the application that we are developing:
+![Books database DAO class diagram](https://github.com/faimoh/dao-design-pattern/blob/master/images/UML_Class_Diagram.png)
