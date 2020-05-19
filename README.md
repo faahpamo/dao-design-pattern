@@ -37,7 +37,8 @@ CREATE TABLE books (
 
 INSERT INTO books(title) VALUES ('Java'), ('The Java Programming Language');
 ```
-We represent a Book in our Java application as:
+
+We represent a `Book` in our Java application as:
 ```java
 public class Book {
   private int bookID;
@@ -103,7 +104,7 @@ There's no low level mechanism that we have to care about. It's purely object-or
 Straight from the [Core J2EE design patterns](http://www.corej2eepatterns.com/DataAccessObject.htm), here's how the DAO design pattern works:
 ![Core J2EE DAO design pattern class diagram](http://www.corej2eepatterns.com/images/DAOMainClass.gif)
 
-In our example, Book is the transaction object (TO) and client is the BookDBTest program. The DAO class hides how it interacts with the underlying DataSource and how it builds up the ResultSet. The client code (BookDBTest) cares about result - like objects interacting (message passing) with each other in an object-oriented application.
+In our example, `Book` is the transaction object (TO) and client is the `BookDBTest` program. The DAO class hides how it interacts with the underlying `DataSource` and how it builds up the `ResultSet`. The client code `BookDBTest` cares about result - like objects interacting (message passing) with each other in an object-oriented application.
 
 The sequence diagram from the [Core J2EE design patterns](http://www.corej2eepatterns.com/DataAccessObject.htm) further shows what we have discussed so far:
 ![Core J2EE DAO design pattern sequence diagram](http://www.corej2eepatterns.com/images/DAOMainSeq.gif)
