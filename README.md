@@ -1,5 +1,5 @@
 # dao-design-pattern
-Discussing the implementation of Data Access Object (DAO) Java EE Design Pattern.
+Discussing the implementation of the Data Access Object (DAO) Java EE Design Pattern.
 ## Introduction
 Ever since I came across the DAO design pattern, I am in love with it. Because, it makes my application design process easier. I still remember the early days of my web application development where I started developing a web app for my team to make daily project reporting easier. The project started out of my personal interest. Initially, I started using the Oracle database. After some days, I began using MySQL on my laptop because it was better working on it when compared with Oracle DB. As soon as I decided to switch to MySQL from Oracle DB, I started facing the awful task of changing many parts of my already developed code. It was a frustrating experience. During such period I came across the DAO design pattern and it solved my data access layer issues forever. It remains my favorite to this day. I have been solely developing web applications and DAO is the part of my application that gets developed first, immediately after designing my data model.
 
