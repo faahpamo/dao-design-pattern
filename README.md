@@ -137,14 +137,16 @@ Here's the class diagram for the application that we are developing:
 
 The UML class diagram is self-explaining. I've designed:
 1. a `DAOFactory` class implementing the abstract factory design pattern
-2. a `BooksDAO` interface for the real DAO object that we've discussed so far. We use this object for our CRUD operations with the underlying database.
+2. a `BooksDAO` interface for the real DAO object that we've discussed so far. We define the behaviour of the books database DAO through this interface. We declare all the CRUD operations here in the interface for the purpose of an uniform way to interact with any type of the actual database. This enforces all the specific database classes to implement the behaviour declared in this interface.
 3. a `MysqlDataSourceBooksDAOImpl` class implementing the `BooksDAO` interface using the MySQL DataSource mechanism.
 4. a `DerbyDataSourceBooksDAOImpl` class implementing the `BooksDAO` interface using the Derby DataSource mechanism.
 5. a `Book` class representing the Book entity. The database table `books` represents a collection of such books. So, the `BooksDAO` object uses the `Book` object during the CRUD operations.
 
 Based on the above class diagram, one can easily develop the Java code. However, you can find my code hosted on GitHub.
 
-Here's a client program `DAOTest` interacting with the above DAO implementation:
+It's important to understand that the individual DAO implementations take care of interacting with database. For example, `MysqlDataSourceBooksDAOImpl` takes care of interacting with a MySQL database, while `DerbyDataSourceBooksDAOImpl` takes care of interacting with a Derby database. These low level mechanisms are now encapsulated by the DAO object. Database client will now be not bothered about the details like driver management, connection pooling etc. All these requirements are handled by the respective DAO implementations. For the database client, the interface to interact with the database - the API - remains same - irrespective of the actual database being used.
+
+Here's an exmaple client program `DAOTest` interacting with the above discussed DAO implementation:
 ```java
 public class DAOTest {
     public static void main(String[] args) {        
@@ -170,7 +172,7 @@ public class DAOTest {
 Output: <br>
 ![DAOTest Output](https://github.com/faimoh/dao-design-pattern/blob/master/images/DAOTest_Output_1.png)
 
-Notice that, I didn't create any DAO object for each database - MySQL and Derby. I have just interacted with the DAOFactory object and then the actual DAO implementation object returned by the factory. There were no database specific calls were made. The DAO object has hidden all such complexities.
+Notice that, I didn't create any DAO object for each database - MySQL and Derby. I have just interacted with the DAOFactory object and then the actual DAO implementation object returned by the factory. There were no database specific calls were made. There was no driver management, connection establishment and termination etc. The DAO object has hidden all such complexities.
 
 ## Conclusion
 DAO pattern essentially has helped me in easily migrating from one database to another. Further, it has removed the complex code that is written from all the business objects (Model) of a web application resulting in loosely coupled code. It has added an extra layer that hides the persistent storage mechanisms from database client code bringing in a centralized control. 
