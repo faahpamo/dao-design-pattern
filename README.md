@@ -100,12 +100,12 @@ public class BookDBTest {
 ```
 There's no low level mechanism that we have to care about. It's purely object-oriented. We treat the persistence storage as an object and we interact with the object. We don't even know what the underlying database actually is! DAO has encapsulated the data access mechanisms and also abstracted the way we interact with the database. The client code is clean.
 
-Straight from the Core J2EE design patterns, here's how the DAO design pattern works:
+Straight from the [Core J2EE design patterns](http://www.corej2eepatterns.com/DataAccessObject.htm), here's how the DAO design pattern works:
 ![Core J2EE DAO design pattern class diagram](http://www.corej2eepatterns.com/images/DAOMainClass.gif)
 
 In our example, Book is the transaction object (TO) and client is the BookDBTest program. The DAO class hides how it interacts with the underlying DataSource and how it builds up the ResultSet. The client code (BookDBTest) cares about result - like objects interacting (message passing) with each other in an object-oriented application.
 
-The sequence diagram from the Core J2EE design patterns further shows what we have discussed so far:
+The sequence diagram from the [Core J2EE design patterns](http://www.corej2eepatterns.com/DataAccessObject.htm) further shows what we have discussed so far:
 ![Core J2EE DAO design pattern sequence diagram](http://www.corej2eepatterns.com/images/DAOMainSeq.gif)
 
 Because we are trying to use two databases - MySQL and Apache Derby, we shall implement [abstract factory design pattern](https://en.wikipedia.org/wiki/Abstract_factory_pattern). If we are using only one database instead, [factory pattern](https://en.wikipedia.org/wiki/Factory_method_pattern) can replace the abstract factory pattern. Our purpose is to use a factory object to create the required DAO and give it to us. Because we want futher abstraction while creating/obtaining the DAO object.  We don't want to specify the exact class of the DAO object that we want. It could be MySQLDAO or DerbyDAO. We don't want to get into those details. All we care about is the DAO object on which we can call the methods like DAO.getBook(int id) etc.
