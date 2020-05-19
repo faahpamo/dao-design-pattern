@@ -98,5 +98,5 @@ public class BookDBTest {
   }
 }
 ```
-There's no low level mechanism that we have to care about. It's purely object-oriented. We treat the persistence storage as an object and we interact with the object. We don't even know what the underlying database actually is! DAO has encapsulated the data access mechanisms and also abstracted the way we interact with the database. The client code is happy.
+There's no low level mechanism that we have to care about. It's purely object-oriented. We treat the persistence storage as an object and we interact with the object. We don't even know what the underlying database actually is! DAO has encapsulated the data access mechanisms and also abstracted the way we interact with the database. The client code is clean.
 
