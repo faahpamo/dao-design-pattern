@@ -73,9 +73,9 @@ public class BooksDBTest {
   }
 }
 ```
-Output:
-Book ID: 1 Title: Java
-Book ID: 5 Title: The Java Programming Language
+Output: <br>
+![Output](https://github.com/faimoh/dao-design-pattern/blob/master/images/BooksDBTest_Output_JDBC_DriverManager.png)
+
 
 Now, let's imagine the underlying database has changed from MySQL to Derby and then later to a file. We should then have to rewrite the whole code. In the above code, we are setting up the low level mechanisms (URL, credentials etc.) to ineract with the database. We can hide this. Database implementor should be able to configure the database without affecting the code.
 
