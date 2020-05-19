@@ -113,7 +113,7 @@ Because we are trying to use two databases - MySQL and Apache Derby, we shall im
 Here's the class diagram for the application that we are developing:
 ![Books database DAO class diagram](https://github.com/faimoh/dao-design-pattern/blob/master/images/UML_Class_Diagram.png)
 
-The class diagrams are self-explaining. Here's the client program `DAOTest` that I've written to interact with the above DAO implementation:
+The UML class diagram ise self-explaining. Here's the client program `DAOTest` that I've written to interact with the above DAO implementation:
 ```java
 public class DAOTest {
     public static void main(String[] args) {        
@@ -138,3 +138,5 @@ public class DAOTest {
 ```
 Output: <br>
 ![DAOTest Output](https://github.com/faimoh/dao-design-pattern/blob/master/images/DAOTest_Output_1.png)
+
+Notice that, I didn't create any DAO object for each database - MySQL and Derby. I have just interacted with the DAOFactory object and then the actual DAO implementation object returned by the factory.
