@@ -20,4 +20,8 @@ In our example implementation, we first begin with designing our data model. To 
 |1|Java|
 |2|The Java Programming Language|
 
-That's it. Very simple. The books database will be used by both command line and web based applications. So, it should support uniform access.
+That's it. Very simple. The books database will be used by both command line and web based applications. So, it should support uniform access. We also want to see the beauty of this 'uniform access layer' while using two different databases - MySQL and Apache Derby. So, those are our two goals for this short project.
+
+The DAO pattern suggests to use an object called 'Data Access Object' which acts as an interface for all our data access needs. This object provides the abstraction and further encapsulates the entire access to the data storage. For our object oriented application, a data access object is another object to interact with - which makes our life a lot easier.
+
+
